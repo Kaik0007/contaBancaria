@@ -1,4 +1,7 @@
-export class Conta {
+
+import readlinesync = require("readline-sync");
+import { colors } from '../util/Colors';
+export abstract class Conta {
 
     private _numero: number;
     private _agencia: number;
@@ -81,16 +84,20 @@ export class Conta {
                 tipo = "Conta Poupança";
                 break;
         }
-
-        console.log("\n\n*****************************************************");
-        console.log("*Dados da Conta:                                        *");
+        console.log(colors.bg.black, colors.fg.bluestrong);
+        console.log("\n\n*********************************************************");
+        console.log("*                                                       *");
+        console.log("*                   Dados da Conta                      *");
+        console.log("*                                                       *");
         console.log("*********************************************************");
         console.log("Numero da Conta: " + this._numero);
         console.log("Agência: " + this._agencia);
         console.log("Tipo da Conta: " + tipo);
         console.log("Titular: " + this._titular);
         console.log("Saldo: " + this._saldo.toFixed(2));
+        (colors.reset);
 
     }
+    
 
 }

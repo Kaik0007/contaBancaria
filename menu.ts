@@ -1,18 +1,36 @@
 import readlinesync = require("readline-sync");
-import { colors } from './src/util/colors';
-import { Conta  } from './src/model/conta';
+import { colors } from './src/util/Colors';
+import { Conta } from './src/model/Conta';
+import { ContaPoupanca } from "./src/model/ContaPoupança";
+import { ContaCorrente } from "./src/model/ContaCorrente";
 
 export function main() {
 
     let opcao: number;
 
-    /*let conta: [] = [];
-    const conta: Conta = new Conta(1, 123, 1, " Jorel", 10000);
+  
+   /*const conta: Conta = new Conta(1, 123, 1, " Jorel", 10000);
     conta.visualizar();
     conta.sacar(12345);
     conta.visualizar();
     conta.depositar(1234);
-    conta.visualizar();*/
+    conta.visualizar();*/ 
+
+    const contaPoupanca: ContaPoupanca = new ContaPoupanca(2, 123, 1, " Mario", 10000, 12);
+    contaPoupanca.visualizar();
+    contaPoupanca.sacar(12345);
+    contaPoupanca.visualizar();
+    contaPoupanca.depositar(1234);
+    contaPoupanca.visualizar(); 
+
+    const contacorrente: ContaCorrente = new ContaCorrente(3, 123, 1, "Tiana", 15000, 1000);
+    contacorrente.visualizar();
+    contacorrente.sacar(2000);
+    contacorrente.visualizar();
+    contacorrente.depositar(1000);
+    contacorrente.visualizar();
+
+
 
     while (true) {  
         console.log(colors.bg.black, colors.fg.bluestrong)
@@ -39,10 +57,10 @@ export function main() {
     
 
         console.log("Entre com a opção desejada: ");
-        opcao = readlinesync.questionInt("");
+        opcao = readlinesync.questionInt("");   
 
         if (opcao == 10) {
-            console.log(colors.fg.bluestrong,"\nKN BANK - O seu dinheiro valorizado!");
+            console.log(colors.fg.bluestrong,"\nKN BANK - Onde o seu dinheiro é valorizado!");
             sobre();
             process.exit(0);
         }
